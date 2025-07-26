@@ -1,0 +1,35 @@
+{
+  "name": "anapars/hashtac-crypto",
+  "description": "Laravel-ready crypto & obfuscation (AES-256-CBC + HMAC + sealed URLs).",
+  "keywords": ["laravel", "crypto", "aes", "hmac", "license", "obfuscation"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "hashtac",
+      "email": "hashtac.ir@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "ext-openssl": "*",
+    "illuminate/support": "^10.0|^11.0|^12.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Anapars\\HashtacCrypto\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Anapars\\HashtacCrypto\\HashtacCryptoServiceProvider"
+      ],
+      "aliases": {
+        "HashtacCipher": "Anapars\\HashtacCrypto\\Facades\\HashtacCipher"
+      }
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
